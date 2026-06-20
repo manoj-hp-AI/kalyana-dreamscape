@@ -29,8 +29,32 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "AGN Kalyana Mantapa — Traditional South Indian Wedding Hall" },
       { name: "description", content: "Sacred mantapa, grand banquet hall, dining, rooms, parking, catering & floral decor for your traditional South Indian wedding." },
-      { property: "og:title", content: "AGN Kalyana Mantapa" },
+      { property: "og:title", content: "AGN Kalyana Mantapa — Traditional South Indian Wedding Hall" },
       { property: "og:description", content: "Auspicious South Indian wedding venue — book your sacred ceremony with us." },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EventVenue",
+          name: "AGN Kalyana Mantapa",
+          description:
+            "Traditional South Indian wedding hall with sacred mantapa, banquet hall, dining hall, guest rooms and secure parking in Bengaluru.",
+          image: "https://image.wedmegood.com/resized/1000X/uploads/member/749355/1569837406_Screenshot_1.jpg",
+          telephone: "+91 98765 43210",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Bannerghatta Main Road, Arekere",
+            addressLocality: "Bengaluru",
+            addressRegion: "Karnataka",
+            addressCountry: "IN",
+          },
+          openingHours: "Mo-Su 09:00-19:00",
+        }),
+      },
     ],
   }),
   component: Index,
