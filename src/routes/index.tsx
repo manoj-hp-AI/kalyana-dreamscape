@@ -262,7 +262,7 @@ function Index() {
               {
                 icon: <IndianRupee className="h-6 w-6" />,
                 title: "Transparent Pricing",
-                price: "₹2.25L – ₹3.25L",
+                price: "₹90,000 – ₹3,00,000",
                 desc: "Per day packages covering mantapa, hall, dining and rooms. Customise to suit your guest count and rituals.",
               },
               {
@@ -509,8 +509,6 @@ function WhatsAppToggle({ wa }: { wa: (msg: string) => string }) {
             <p className="rounded-xl rounded-tl-none bg-secondary/20 p-3 text-foreground">
               🙏 Namaste! How can we help you today?
             </p>
-            <a href={wa("Namaste, I would like to check date availability.")} target="_blank" rel="noreferrer" className="block rounded-lg border border-accent/60 px-3 py-2 text-foreground hover:bg-secondary/20">📅 Check date availability</a>
-            <a href={wa("Namaste, please share your wedding packages and pricing.")} target="_blank" rel="noreferrer" className="block rounded-lg border border-accent/60 px-3 py-2 text-foreground hover:bg-secondary/20">💰 Get pricing details</a>
             <a href={wa("Namaste, I would like to schedule a site visit.")} target="_blank" rel="noreferrer" className="block rounded-lg border border-accent/60 px-3 py-2 text-foreground hover:bg-secondary/20">🏛️ Schedule a site visit</a>
             <a href={wa("Namaste, I would like to speak to the wedding co-ordinator.")} target="_blank" rel="noreferrer" className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-3 py-2.5 font-semibold text-white">
               <MessageCircle className="h-4 w-4" /> Start Chat
