@@ -524,7 +524,7 @@ function WhatsAppToggle({ wa }: { wa: (msg: string) => string }) {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? "Close WhatsApp chat" : "Open WhatsApp chat"}
-        className="grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_10px_40px_-5px_rgba(37,211,102,0.6)] transition hover:scale-110"
+        className="relative grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_10px_40px_-5px_rgba(37,211,102,0.6)] transition hover:scale-110"
       >
         {open ? <X className="h-7 w-7" /> : <MessageCircle className="h-7 w-7" />}
         {!open && <span className="absolute -right-1 -top-1 flex h-4 w-4"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#25D366] opacity-75" /><span className="relative inline-flex h-4 w-4 rounded-full bg-secondary" /></span>}
