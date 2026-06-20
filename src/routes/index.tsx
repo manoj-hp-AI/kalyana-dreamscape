@@ -398,7 +398,7 @@ function Index() {
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           <div className="md:col-span-2 overflow-hidden rounded-3xl border-2 border-accent/60 shadow-gold">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15554.69!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjgiTiA3N8KwMzUnNDAuNiJF!5e0!3m2!1sen!2sin!4v1700000000000"
+              src="https://www.google.com/maps?q=AGN+Kalyana+Mantapa+Bannerghatta+Road+Arekere+Bengaluru&output=embed"
               className="h-[420px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -418,10 +418,6 @@ function Index() {
               <div className="flex gap-3">
                 <Phone className="h-5 w-5 shrink-0 text-secondary" />
                 <p>{PHONE_DISPLAY}<br /><span className="text-muted-foreground">+91 80 2667 8901 (Office)</span></p>
-              </div>
-              <div className="flex gap-3">
-                <Mail className="h-5 w-5 shrink-0 text-secondary" />
-                <p>bookings@agnkalyanamantapa.in</p>
               </div>
             </div>
             <a
@@ -457,9 +453,8 @@ function Index() {
             <div className="mt-1 h-1 w-12 bg-accent" />
             <ul className="mt-5 space-y-3 text-sm text-primary-foreground/85">
               <li className="flex gap-2"><Phone className="h-4 w-4 text-accent" /> {PHONE_DISPLAY}</li>
-              <li className="flex gap-2"><Mail className="h-4 w-4 text-accent" /> bookings@agnkalyanamantapa.in</li>
               <li className="flex gap-2"><MapPin className="h-4 w-4 text-accent" /> Arekere, Bengaluru 560076</li>
-              <li className="text-primary-foreground/70">Office Hours: 9 AM – 8 PM (All Days)</li>
+              <li className="text-primary-foreground/70">Office Hours: 9 AM – 7 PM (All Days)</li>
             </ul>
           </div>
 
