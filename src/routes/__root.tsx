@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sri Lakshmi Kalyana Mantapa — Traditional South Indian Wedding Hall" },
+      { title: "AGN Kalyana Mantapa — Traditional South Indian Wedding Hall" },
       { name: "description", content: "An auspicious South Indian Kalyana Mantapa for your sacred wedding — golden mantapa, banquet halls, suites, catering and floral decor." },
-      { name: "author", content: "Sri Lakshmi Kalyana Mantapa" },
-      { property: "og:title", content: "Sri Lakshmi Kalyana Mantapa" },
+      { name: "author", content: "AGN Kalyana Mantapa" },
+      { property: "og:title", content: "AGN Kalyana Mantapa" },
       { property: "og:description", content: "Traditional South Indian wedding hall — mantapa, dining, rooms, parking, catering & decor." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
