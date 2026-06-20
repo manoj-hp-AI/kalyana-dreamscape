@@ -263,7 +263,7 @@ function Index() {
               {
                 icon: <IndianRupee className="h-6 w-6" />,
                 title: "Transparent Pricing",
-                price: "₹85,000 – ₹3,50,000",
+                price: "₹2.25L – ₹3.25L",
                 desc: "Per day packages covering mantapa, hall, dining and rooms. Customise to suit your guest count and rituals.",
               },
               {
@@ -366,14 +366,16 @@ function Index() {
           </p>
 
           <div className="mt-12 overflow-hidden rounded-3xl border-4 border-accent/70 shadow-royal">
-            <div className="relative aspect-video bg-black">
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-                title="AGN Kalyana Mantapa — Virtual Tour"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <div className="relative grid aspect-video place-items-center bg-black/60 text-center">
+              <div className="px-6">
+                <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-accent/20 text-accent">
+                  <Play className="h-7 w-7 fill-current" />
+                </div>
+                <p className="mt-5 font-display text-2xl text-accent">Virtual Tour Coming Soon</p>
+                <p className="mt-2 text-sm text-primary-foreground/75">
+                  Our official walkthrough video will be added here shortly.
+                </p>
+              </div>
             </div>
           </div>
 
