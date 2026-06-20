@@ -4,7 +4,6 @@ import {
   ChevronDown,
   MapPin,
   Phone,
-  Mail,
   ShieldCheck,
   Camera,
   IndianRupee,
