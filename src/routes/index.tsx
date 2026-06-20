@@ -263,7 +263,7 @@ function Index() {
               {
                 icon: <IndianRupee className="h-6 w-6" />,
                 title: "Transparent Pricing",
-                price: "₹85,000 – ₹3,50,000",
+                price: "₹2.25L – ₹3.25L",
                 desc: "Per day packages covering mantapa, hall, dining and rooms. Customise to suit your guest count and rituals.",
               },
               {
