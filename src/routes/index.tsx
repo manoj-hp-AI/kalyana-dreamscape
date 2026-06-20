@@ -15,14 +15,15 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import heroImg from "@/assets/hero-mantapa.jpg";
-import galMantapa from "@/assets/gal-mantapa.jpg";
-import galParking from "@/assets/gal-parking.jpg";
-import galDining from "@/assets/gal-dining.jpg";
-import galRooms from "@/assets/gal-rooms.jpg";
-import galHall from "@/assets/gal-hall.jpg";
-import catererImg from "@/assets/caterer.jpg";
-import floristImg from "@/assets/florist.jpg";
+// Real photos sourced from AGN Kalyana Mantapa's public listing on WedMeGood
+const heroImg = "https://image.wedmegood.com/resized/1000X/uploads/member/749355/1569837406_Screenshot_1.jpg";
+const galMantapa = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_2.jpg";
+const galHall = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_1.jpg";
+const galDining = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_3.jpg";
+const galRooms = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_4.jpg";
+const galParking = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_5.jpg";
+const catererImg = "https://image.wedmegood.com/resized/800X/uploads/member/140316/1741870257_image4544.jpg";
+const floristImg = "https://image.wedmegood.com/resized/800X/uploads/member/2224755/1739268490_image3682.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
