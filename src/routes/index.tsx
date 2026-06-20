@@ -64,11 +64,11 @@ const WHATSAPP_NUMBER = "919876543210";
 const PHONE_DISPLAY = "+91 98765 43210";
 
 const galleryCategories = [
-  { id: "mantapa", label: "Mantapa", img: galMantapa, desc: "The sacred golden stage where vows are exchanged." },
-  { id: "hall", label: "Main Hall", img: galHall, desc: "Grand banquet hall accommodating 1000+ guests." },
-  { id: "dining", label: "Dining Hall", img: galDining, desc: "Traditional banana-leaf dining for 500 guests at a time." },
-  { id: "rooms", label: "Guest Rooms", img: galRooms, desc: "20 elegant suites for the wedding party." },
-  { id: "parking", label: "Parking", img: galParking, desc: "Secure parking for 200+ vehicles with valet service." },
+  { id: "mantapa", label: "Mantapa", alt: "Sacred wedding mantapa decorated with marigolds and brass lamps", img: galMantapa, desc: "The sacred golden stage where vows are exchanged." },
+  { id: "hall", label: "Main Hall", alt: "Grand banquet hall with traditional South Indian decor", img: galHall, desc: "Grand banquet hall accommodating 1000+ guests." },
+  { id: "dining", label: "Dining Hall", alt: "Traditional banana-leaf dining hall for wedding guests", img: galDining, desc: "Traditional banana-leaf dining for 500 guests at a time." },
+  { id: "rooms", label: "Guest Rooms", alt: "Elegant guest suites for the wedding party", img: galRooms, desc: "20 elegant suites for the wedding party." },
+  { id: "parking", label: "Parking", alt: "Secure on-site parking with valet service", img: galParking, desc: "Secure parking for 200+ vehicles with valet service." },
 ] as const;
 
 function Index() {
