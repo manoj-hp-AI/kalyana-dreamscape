@@ -182,8 +182,10 @@ function Index() {
             <span>॥ Shubha Vivaha ॥</span>
           </p>
           <h1 className="font-display text-4xl leading-tight text-primary-foreground sm:text-6xl md:text-7xl">
-            AGN <br />
-            <span className="text-accent">Kalyana Mantapa</span>
+            AGN <span className="text-accent">Kalyana Mantapa</span>
+            <span className="mt-3 block font-display text-xl text-primary-foreground/90 sm:text-2xl md:text-3xl">
+              Traditional South Indian Wedding Hall in Bengaluru
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
             A sacred space woven with marigold, jasmine and golden lamps — where two souls
