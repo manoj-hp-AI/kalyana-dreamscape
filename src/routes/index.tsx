@@ -29,8 +29,32 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "AGN Kalyana Mantapa — Traditional South Indian Wedding Hall" },
       { name: "description", content: "Sacred mantapa, grand banquet hall, dining, rooms, parking, catering & floral decor for your traditional South Indian wedding." },
-      { property: "og:title", content: "AGN Kalyana Mantapa" },
+      { property: "og:title", content: "AGN Kalyana Mantapa — Traditional South Indian Wedding Hall" },
       { property: "og:description", content: "Auspicious South Indian wedding venue — book your sacred ceremony with us." },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EventVenue",
+          name: "AGN Kalyana Mantapa",
+          description:
+            "Traditional South Indian wedding hall with sacred mantapa, banquet hall, dining hall, guest rooms and secure parking in Bengaluru.",
+          image: "https://image.wedmegood.com/resized/1000X/uploads/member/749355/1569837406_Screenshot_1.jpg",
+          telephone: "+91 98765 43210",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Bannerghatta Main Road, Arekere",
+            addressLocality: "Bengaluru",
+            addressRegion: "Karnataka",
+            addressCountry: "IN",
+          },
+          openingHours: "Mo-Su 09:00-19:00",
+        }),
+      },
     ],
   }),
   component: Index,
@@ -40,11 +64,11 @@ const WHATSAPP_NUMBER = "919876543210";
 const PHONE_DISPLAY = "+91 98765 43210";
 
 const galleryCategories = [
-  { id: "mantapa", label: "Mantapa", img: galMantapa, desc: "The sacred golden stage where vows are exchanged." },
-  { id: "hall", label: "Main Hall", img: galHall, desc: "Grand banquet hall accommodating 1000+ guests." },
-  { id: "dining", label: "Dining Hall", img: galDining, desc: "Traditional banana-leaf dining for 500 guests at a time." },
-  { id: "rooms", label: "Guest Rooms", img: galRooms, desc: "20 elegant suites for the wedding party." },
-  { id: "parking", label: "Parking", img: galParking, desc: "Secure parking for 200+ vehicles with valet service." },
+  { id: "mantapa", label: "Mantapa", alt: "Sacred wedding mantapa decorated with marigolds and brass lamps", img: galMantapa, desc: "The sacred golden stage where vows are exchanged." },
+  { id: "hall", label: "Main Hall", alt: "Grand banquet hall with traditional South Indian decor", img: galHall, desc: "Grand banquet hall accommodating 1000+ guests." },
+  { id: "dining", label: "Dining Hall", alt: "Traditional banana-leaf dining hall for wedding guests", img: galDining, desc: "Traditional banana-leaf dining for 500 guests at a time." },
+  { id: "rooms", label: "Guest Rooms", alt: "Elegant guest suites for the wedding party", img: galRooms, desc: "20 elegant suites for the wedding party." },
+  { id: "parking", label: "Parking", alt: "Secure on-site parking with valet service", img: galParking, desc: "Secure parking for 200+ vehicles with valet service." },
 ] as const;
 
 function Index() {
@@ -158,8 +182,10 @@ function Index() {
             <span>॥ Shubha Vivaha ॥</span>
           </p>
           <h1 className="font-display text-4xl leading-tight text-primary-foreground sm:text-6xl md:text-7xl">
-            AGN <br />
-            <span className="text-accent">Kalyana Mantapa</span>
+            AGN <span className="text-accent">Kalyana Mantapa</span>
+            <span className="mt-3 block font-display text-xl text-primary-foreground/90 sm:text-2xl md:text-3xl">
+              Traditional South Indian Wedding Hall in Bengaluru
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
             A sacred space woven with marigold, jasmine and golden lamps — where two souls
@@ -218,7 +244,7 @@ function Index() {
               <img
                 key={active.id}
                 src={active.img}
-                alt={active.label}
+                alt={active.alt}
                 className="h-[420px] w-full animate-in fade-in object-cover md:h-[520px]"
                 loading="lazy"
               />
