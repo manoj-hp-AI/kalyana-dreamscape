@@ -244,7 +244,7 @@ function Index() {
               <img
                 key={active.id}
                 src={active.img}
-                alt={active.label}
+                alt={active.alt}
                 className="h-[420px] w-full animate-in fade-in object-cover md:h-[520px]"
                 loading="lazy"
               />
