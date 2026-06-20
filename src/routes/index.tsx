@@ -15,21 +15,22 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import heroImg from "@/assets/hero-mantapa.jpg";
-import galMantapa from "@/assets/gal-mantapa.jpg";
-import galParking from "@/assets/gal-parking.jpg";
-import galDining from "@/assets/gal-dining.jpg";
-import galRooms from "@/assets/gal-rooms.jpg";
-import galHall from "@/assets/gal-hall.jpg";
-import catererImg from "@/assets/caterer.jpg";
-import floristImg from "@/assets/florist.jpg";
+// Real photos sourced from AGN Kalyana Mantapa's public listing on WedMeGood
+const heroImg = "https://image.wedmegood.com/resized/1000X/uploads/member/749355/1569837406_Screenshot_1.jpg";
+const galMantapa = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_2.jpg";
+const galHall = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_1.jpg";
+const galDining = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_3.jpg";
+const galRooms = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_4.jpg";
+const galParking = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_5.jpg";
+const catererImg = "https://image.wedmegood.com/resized/800X/uploads/member/140316/1741870257_image4544.jpg";
+const floristImg = "https://image.wedmegood.com/resized/800X/uploads/member/2224755/1739268490_image3682.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sri Lakshmi Kalyana Mantapa — Traditional South Indian Wedding Hall" },
+      { title: "AGN Kalyana Mantapa — Traditional South Indian Wedding Hall" },
       { name: "description", content: "Sacred mantapa, grand banquet hall, dining, rooms, parking, catering & floral decor for your traditional South Indian wedding." },
-      { property: "og:title", content: "Sri Lakshmi Kalyana Mantapa" },
+      { property: "og:title", content: "AGN Kalyana Mantapa" },
       { property: "og:description", content: "Auspicious South Indian wedding venue — book your sacred ceremony with us." },
     ],
   }),
@@ -67,7 +68,7 @@ function Index() {
               <span className="font-display text-xl">ॐ</span>
             </span>
             <span className="leading-tight">
-              <span className="block font-display text-lg text-primary">Sri Lakshmi</span>
+              <span className="block font-display text-lg text-primary">AGN</span>
               <span className="block text-xs uppercase tracking-[0.2em] text-muted-foreground">Kalyana Mantapa</span>
             </span>
           </a>
@@ -158,7 +159,7 @@ function Index() {
             <span>॥ Shubha Vivaha ॥</span>
           </p>
           <h1 className="font-display text-4xl leading-tight text-primary-foreground sm:text-6xl md:text-7xl">
-            Sri Lakshmi <br />
+            AGN <br />
             <span className="text-accent">Kalyana Mantapa</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
@@ -250,7 +251,7 @@ function Index() {
           </div>
 
           <div className="mx-auto mt-8 max-w-3xl text-center text-lg leading-relaxed text-muted-foreground">
-            For three generations, Sri Lakshmi Kalyana Mantapa has hosted sacred unions
+            For three generations, AGN Kalyana Mantapa has hosted sacred unions
             in the spirit of true South Indian tradition. Every detail — from the carved
             golden pillars to the jasmine-scented evenings — is offered with devotion. Our
             in-house teams handle décor, dining, lodging and logistics so your family
@@ -319,7 +320,7 @@ function Index() {
               name: "Sri Annapoorna Caterers",
               desc: "Authentic South Indian banana-leaf meals — over 60 traditional dishes from Karnataka, Tamil Nadu & Andhra. Pure satvik kitchen.",
               phone: "+91 98450 12345",
-              waMsg: "Namaste, I would like to enquire about wedding catering at Sri Lakshmi Kalyana Mantapa.",
+              waMsg: "Namaste, I would like to enquire about wedding catering at AGN Kalyana Mantapa.",
             },
             {
               img: floristImg,
@@ -328,7 +329,7 @@ function Index() {
               name: "Mallige Pushpa Decor",
               desc: "Fresh marigold, jasmine, rose and orchid mantapa décor. Specialists in traditional pheras, kalyana and reception staging.",
               phone: "+91 98860 56789",
-              waMsg: "Namaste, I would like to enquire about flower decoration for my wedding at Sri Lakshmi Kalyana Mantapa.",
+              waMsg: "Namaste, I would like to enquire about flower decoration for my wedding at AGN Kalyana Mantapa.",
             },
           ].map((v) => (
             <div key={v.name} className="overflow-hidden rounded-3xl border border-accent/50 bg-card shadow-gold">
@@ -369,7 +370,7 @@ function Index() {
               <iframe
                 className="absolute inset-0 h-full w-full"
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-                title="Sri Lakshmi Kalyana Mantapa — Virtual Tour"
+                title="AGN Kalyana Mantapa — Virtual Tour"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
@@ -399,7 +400,7 @@ function Index() {
               className="h-[420px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Sri Lakshmi Kalyana Mantapa Location"
+              title="AGN Kalyana Mantapa Location"
             />
           </div>
           <div className="rounded-3xl border border-accent/40 bg-card p-7 shadow-gold">
@@ -408,8 +409,8 @@ function Index() {
               <div className="flex gap-3">
                 <MapPin className="h-5 w-5 shrink-0 text-secondary" />
                 <p>
-                  #42, Temple Street, Basavanagudi, <br />
-                  Bengaluru, Karnataka — 560004
+                  Bannerghatta Main Rd, Omkar Nagar, Arekere, <br />
+                  Bengaluru, Karnataka — 560076
                 </p>
               </div>
               <div className="flex gap-3">
@@ -418,11 +419,11 @@ function Index() {
               </div>
               <div className="flex gap-3">
                 <Mail className="h-5 w-5 shrink-0 text-secondary" />
-                <p>bookings@srilakshmimantapa.in</p>
+                <p>bookings@agnkalyanamantapa.in</p>
               </div>
             </div>
             <a
-              href="https://maps.google.com/?q=Basavanagudi+Bengaluru"
+              href="https://maps.google.com/?q=AGN+Kalyana+Mantapa+Arekere+Bengaluru"
               target="_blank"
               rel="noreferrer"
               className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-royal px-6 py-3 text-sm font-semibold text-primary-foreground shadow-gold"
@@ -440,7 +441,7 @@ function Index() {
             <div className="flex items-center gap-3">
               <span className="grid h-12 w-12 place-items-center rounded-full bg-accent text-primary"><span className="font-display text-2xl">ॐ</span></span>
               <div>
-                <div className="font-display text-xl">Sri Lakshmi</div>
+                <div className="font-display text-xl">AGN</div>
                 <div className="text-xs uppercase tracking-[0.2em] text-accent">Kalyana Mantapa</div>
               </div>
             </div>
@@ -454,8 +455,8 @@ function Index() {
             <div className="mt-1 h-1 w-12 bg-accent" />
             <ul className="mt-5 space-y-3 text-sm text-primary-foreground/85">
               <li className="flex gap-2"><Phone className="h-4 w-4 text-accent" /> {PHONE_DISPLAY}</li>
-              <li className="flex gap-2"><Mail className="h-4 w-4 text-accent" /> bookings@srilakshmimantapa.in</li>
-              <li className="flex gap-2"><MapPin className="h-4 w-4 text-accent" /> Basavanagudi, Bengaluru 560004</li>
+              <li className="flex gap-2"><Mail className="h-4 w-4 text-accent" /> bookings@agnkalyanamantapa.in</li>
+              <li className="flex gap-2"><MapPin className="h-4 w-4 text-accent" /> Arekere, Bengaluru 560076</li>
               <li className="text-primary-foreground/70">Office Hours: 9 AM – 8 PM (All Days)</li>
             </ul>
           </div>
@@ -478,7 +479,7 @@ function Index() {
 
         <div className="border-t border-accent/30">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-5 text-xs text-primary-foreground/70 md:flex-row">
-            <p>© {new Date().getFullYear()} Sri Lakshmi Kalyana Mantapa. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} AGN Kalyana Mantapa. All rights reserved.</p>
             <p>Built with devotion · ॐ श्री गणेशाय नमः</p>
           </div>
         </div>
@@ -503,7 +504,7 @@ function WhatsAppToggle({ wa }: { wa: (msg: string) => string }) {
                 <MessageCircle className="h-5 w-5" />
               </div>
               <div>
-                <div className="font-semibold">Sri Lakshmi Mantapa</div>
+                <div className="font-semibold">AGN Mantapa</div>
                 <div className="text-xs text-white/80">Typically replies in minutes</div>
               </div>
             </div>
