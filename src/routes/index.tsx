@@ -280,29 +280,29 @@ function Index() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-5">
-          <div className="md:col-span-3">
-            <div className="overflow-hidden rounded-3xl border-2 border-accent/60 shadow-royal">
+        <div className="mt-10 grid grid-cols-5 gap-3 sm:gap-4 md:gap-6">
+          <div className="col-span-3">
+            <div className="overflow-hidden rounded-2xl border-2 border-accent/60 shadow-royal sm:rounded-3xl">
               <img
                 key={active.id}
                 src={active.img}
                 alt={active.alt}
-                className="h-[420px] w-full animate-in fade-in object-cover md:h-[520px]"
+                className="h-full max-h-[520px] min-h-[220px] w-full animate-in fade-in object-cover sm:min-h-[360px] md:min-h-[420px]"
                 loading="lazy"
               />
             </div>
           </div>
-          <div className="rounded-3xl border border-accent/40 bg-card p-8 shadow-gold md:col-span-2">
-            <h3 className="text-3xl text-primary">{active.label}</h3>
+          <div className="col-span-2 rounded-2xl border border-accent/40 bg-card p-4 shadow-gold sm:rounded-3xl sm:p-6 md:p-8">
+            <h3 className="text-lg text-primary sm:text-2xl md:text-3xl">{active.label}</h3>
             <div className="mt-2 h-1 w-16 bg-gradient-saffron" />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{active.desc}</p>
-            <ul className="mt-6 space-y-3 text-sm">
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground sm:mt-5 sm:text-base md:text-lg">{active.desc}</p>
+            <ul className="mt-4 space-y-2 text-xs sm:mt-6 sm:space-y-3 sm:text-sm">
               <li className="flex items-start gap-3"><span className="text-secondary">✦</span> Hand-crafted traditional design</li>
               <li className="flex items-start gap-3"><span className="text-secondary">✦</span> Air-conditioned with backup power</li>
               <li className="flex items-start gap-3"><span className="text-secondary">✦</span> Customisable décor packages</li>
               <li className="flex items-start gap-3"><span className="text-secondary">✦</span> 24×7 housekeeping</li>
             </ul>
-            <a href="#contact" className="mt-8 inline-flex rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">
+            <a href="#contact" className="mt-5 inline-flex rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground hover:opacity-90 sm:mt-8 sm:px-6 sm:py-2.5 sm:text-sm">
               Enquire Now
             </a>
           </div>
@@ -394,36 +394,36 @@ function Index() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-5">
-          <div className="md:col-span-3">
-            <div className="relative overflow-hidden rounded-3xl border-2 border-accent/60 shadow-royal">
+        <div className="mt-10 grid grid-cols-5 gap-3 sm:gap-4 md:gap-6">
+          <div className="col-span-3">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-accent/60 shadow-royal sm:rounded-3xl">
               <img
                 key={activeV.id}
                 src={activeV.img}
                 alt={activeV.alt}
-                className="h-[420px] w-full animate-in fade-in object-cover md:h-[520px]"
+                className="h-full max-h-[520px] min-h-[220px] w-full animate-in fade-in object-cover sm:min-h-[360px] md:min-h-[420px]"
                 loading="lazy"
               />
-              <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-gradient-royal px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
+              <span className="absolute left-2 top-2 inline-flex items-center gap-1 rounded-full bg-gradient-royal px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary-foreground sm:left-4 sm:top-4 sm:gap-2 sm:px-4 sm:py-1.5 sm:text-xs">
                 {activeV.icon} {activeV.tag}
               </span>
             </div>
           </div>
-          <div className="rounded-3xl border border-accent/40 bg-card p-8 shadow-gold md:col-span-2">
-            <h3 className="text-3xl text-primary">{activeV.name}</h3>
+          <div className="col-span-2 rounded-2xl border border-accent/40 bg-card p-4 shadow-gold sm:rounded-3xl sm:p-6 md:p-8">
+            <h3 className="text-lg text-primary sm:text-2xl md:text-3xl">{activeV.name}</h3>
             <div className="mt-2 h-1 w-16 bg-gradient-saffron" />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{activeV.desc}</p>
-            <ul className="mt-6 space-y-3 text-sm">
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground sm:mt-5 sm:text-base md:text-lg">{activeV.desc}</p>
+            <ul className="mt-4 space-y-2 text-xs sm:mt-6 sm:space-y-3 sm:text-sm">
               {activeV.features.map((f) => (
                 <li key={f} className="flex items-start gap-3"><span className="text-secondary">✦</span> {f}</li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={`tel:${activeV.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
-                <Phone className="h-4 w-4" /> {activeV.phone}
+            <div className="mt-5 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
+              <a href={`tel:${activeV.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-1.5 rounded-full border-2 border-primary px-3 py-1.5 text-[11px] font-semibold text-primary hover:bg-primary hover:text-primary-foreground sm:gap-2 sm:px-5 sm:py-2 sm:text-sm">
+                <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> {activeV.phone}
               </a>
-              <a href={wa(activeV.waMsg)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-saffron px-5 py-2 text-sm font-semibold text-primary shadow-gold">
-                <MessageCircle className="h-4 w-4" /> WhatsApp
+              <a href={wa(activeV.waMsg)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-gradient-saffron px-3 py-1.5 text-[11px] font-semibold text-primary shadow-gold sm:gap-2 sm:px-5 sm:py-2 sm:text-sm">
+                <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> WhatsApp
               </a>
             </div>
           </div>
