@@ -75,8 +75,50 @@ function Index() {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activeCat, setActiveCat] = useState<string>("mantapa");
   const [mobileNav, setMobileNav] = useState(false);
+  const [activeVendor, setActiveVendor] = useState<string>("caterer");
 
   const active = galleryCategories.find((c) => c.id === activeCat) ?? galleryCategories[0];
+
+  const vendors = [
+    {
+      id: "caterer",
+      label: "Catering",
+      img: catererImg,
+      icon: <Utensils className="h-5 w-5" />,
+      tag: "Catering",
+      name: "Sri Annapoorna Caterers",
+      alt: "Traditional South Indian banana-leaf wedding feast",
+      desc: "Authentic South Indian banana-leaf meals — over 60 traditional dishes from Karnataka, Tamil Nadu & Andhra. Pure satvik kitchen.",
+      features: [
+        "60+ traditional regional dishes",
+        "Pure satvik kitchen, no onion-garlic option",
+        "Banana-leaf service for 500+ guests",
+        "Live dosa, chaat and sweets counters",
+      ],
+      phone: "+91 98450 12345",
+      waMsg: "Namaste, I would like to enquire about wedding catering at AGN Kalyana Mantapa.",
+    },
+    {
+      id: "florist",
+      label: "Floral Decor",
+      img: floristImg,
+      icon: <Flower2 className="h-5 w-5" />,
+      tag: "Floral Decor",
+      name: "Mallige Pushpa Decor",
+      alt: "Mantapa decorated with marigold and jasmine flowers",
+      desc: "Fresh marigold, jasmine, rose and orchid mantapa décor. Specialists in traditional pheras, kalyana and reception staging.",
+      features: [
+        "Fresh marigold, jasmine & rose work",
+        "Traditional mantapa & reception staging",
+        "Custom themes for muhurtham & nichayam",
+        "Same-day setup with skilled artisans",
+      ],
+      phone: "+91 98860 56789",
+      waMsg: "Namaste, I would like to enquire about flower decoration for my wedding at AGN Kalyana Mantapa.",
+    },
+  ] as const;
+
+  const activeV = vendors.find((v) => v.id === activeVendor) ?? vendors[0];
 
   const wa = (msg: string) =>
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
