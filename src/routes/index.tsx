@@ -75,8 +75,50 @@ function Index() {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activeCat, setActiveCat] = useState<string>("mantapa");
   const [mobileNav, setMobileNav] = useState(false);
+  const [activeVendor, setActiveVendor] = useState<string>("caterer");
 
   const active = galleryCategories.find((c) => c.id === activeCat) ?? galleryCategories[0];
+
+  const vendors = [
+    {
+      id: "caterer",
+      label: "Catering",
+      img: catererImg,
+      icon: <Utensils className="h-5 w-5" />,
+      tag: "Catering",
+      name: "Sri Annapoorna Caterers",
+      alt: "Traditional South Indian banana-leaf wedding feast",
+      desc: "Authentic South Indian banana-leaf meals — over 60 traditional dishes from Karnataka, Tamil Nadu & Andhra. Pure satvik kitchen.",
+      features: [
+        "60+ traditional regional dishes",
+        "Pure satvik kitchen, no onion-garlic option",
+        "Banana-leaf service for 500+ guests",
+        "Live dosa, chaat and sweets counters",
+      ],
+      phone: "+91 98450 12345",
+      waMsg: "Namaste, I would like to enquire about wedding catering at AGN Kalyana Mantapa.",
+    },
+    {
+      id: "florist",
+      label: "Floral Decor",
+      img: floristImg,
+      icon: <Flower2 className="h-5 w-5" />,
+      tag: "Floral Decor",
+      name: "Mallige Pushpa Decor",
+      alt: "Mantapa decorated with marigold and jasmine flowers",
+      desc: "Fresh marigold, jasmine, rose and orchid mantapa décor. Specialists in traditional pheras, kalyana and reception staging.",
+      features: [
+        "Fresh marigold, jasmine & rose work",
+        "Traditional mantapa & reception staging",
+        "Custom themes for muhurtham & nichayam",
+        "Same-day setup with skilled artisans",
+      ],
+      phone: "+91 98860 56789",
+      waMsg: "Namaste, I would like to enquire about flower decoration for my wedding at AGN Kalyana Mantapa.",
+    },
+  ] as const;
+
+  const activeV = vendors.find((v) => v.id === activeVendor) ?? vendors[0];
 
   const wa = (msg: string) =>
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
@@ -336,48 +378,55 @@ function Index() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {[
-            {
-              img: catererImg,
-              icon: <Utensils className="h-5 w-5" />,
-              tag: "Catering",
-              name: "Sri Annapoorna Caterers",
-              desc: "Authentic South Indian banana-leaf meals — over 60 traditional dishes from Karnataka, Tamil Nadu & Andhra. Pure satvik kitchen.",
-              phone: "+91 98450 12345",
-              waMsg: "Namaste, I would like to enquire about wedding catering at AGN Kalyana Mantapa.",
-            },
-            {
-              img: floristImg,
-              icon: <Flower2 className="h-5 w-5" />,
-              tag: "Floral Decor",
-              name: "Mallige Pushpa Decor",
-              desc: "Fresh marigold, jasmine, rose and orchid mantapa décor. Specialists in traditional pheras, kalyana and reception staging.",
-              phone: "+91 98860 56789",
-              waMsg: "Namaste, I would like to enquire about flower decoration for my wedding at AGN Kalyana Mantapa.",
-            },
-          ].map((v) => (
-            <div key={v.name} className="overflow-hidden rounded-3xl border border-accent/50 bg-card shadow-gold">
-              <div className="relative h-64 overflow-hidden">
-                <img src={v.img} alt={v.name} className="h-full w-full object-cover transition duration-700 hover:scale-105" loading="lazy" />
-                <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-gradient-royal px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
-                  {v.icon} {v.tag}
-                </span>
-              </div>
-              <div className="p-7">
-                <h3 className="text-2xl text-primary">{v.name}</h3>
-                <p className="mt-3 text-muted-foreground">{v.desc}</p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a href={`tel:${v.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
-                    <Phone className="h-4 w-4" /> {v.phone}
-                  </a>
-                  <a href={wa(v.waMsg)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-saffron px-5 py-2 text-sm font-semibold text-primary shadow-gold">
-                    <MessageCircle className="h-4 w-4" /> WhatsApp
-                  </a>
-                </div>
-              </div>
-            </div>
+        <div className="mt-12 flex flex-wrap justify-center gap-2 md:gap-3">
+          {vendors.map((v) => (
+            <button
+              key={v.id}
+              onClick={() => setActiveVendor(v.id)}
+              className={`rounded-full border-2 px-5 py-2 text-sm font-medium transition ${
+                activeVendor === v.id
+                  ? "border-primary bg-gradient-royal text-primary-foreground shadow-gold"
+                  : "border-accent/60 text-foreground hover:border-primary"
+              }`}
+            >
+              {v.label}
+            </button>
           ))}
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-5">
+          <div className="md:col-span-3">
+            <div className="relative overflow-hidden rounded-3xl border-2 border-accent/60 shadow-royal">
+              <img
+                key={activeV.id}
+                src={activeV.img}
+                alt={activeV.alt}
+                className="h-[420px] w-full animate-in fade-in object-cover md:h-[520px]"
+                loading="lazy"
+              />
+              <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-gradient-royal px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
+                {activeV.icon} {activeV.tag}
+              </span>
+            </div>
+          </div>
+          <div className="rounded-3xl border border-accent/40 bg-card p-8 shadow-gold md:col-span-2">
+            <h3 className="text-3xl text-primary">{activeV.name}</h3>
+            <div className="mt-2 h-1 w-16 bg-gradient-saffron" />
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{activeV.desc}</p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {activeV.features.map((f) => (
+                <li key={f} className="flex items-start gap-3"><span className="text-secondary">✦</span> {f}</li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href={`tel:${activeV.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
+                <Phone className="h-4 w-4" /> {activeV.phone}
+              </a>
+              <a href={wa(activeV.waMsg)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-saffron px-5 py-2 text-sm font-semibold text-primary shadow-gold">
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
