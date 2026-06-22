@@ -331,7 +331,7 @@ function Index() {
                 icon: <IndianRupee className="h-6 w-6" />,
                 title: "Transparent Pricing",
                 price: "₹90,000 – ₹3,00,000",
-                desc: "Per day packages covering mantapa, hall, dining and rooms. Customise to suit your guest count and rituals.",
+                desc: "2-day packages covering mantapa, hall, dining and rooms. Single-day bookings available on negotiation. Customise to suit your guest count and rituals.",
               },
               {
                 icon: <Camera className="h-6 w-6" />,
@@ -359,7 +359,7 @@ function Index() {
 
           <div className="mt-10 rounded-2xl border border-accent/50 bg-gradient-royal p-8 text-center text-primary-foreground shadow-royal">
             <p className="font-display text-lg md:text-xl">
-              ✦ Mantapa-only · Half-day · Full-day · 2-day · Reception-only packages available ✦
+              ✦ 2-Day · Single-Day (negotiable) · Reception-only packages available ✦
             </p>
             <p className="mt-2 text-sm text-primary-foreground/80">
               Speak to our co-ordinator for a tailored quote based on your muhurtham and rituals.
