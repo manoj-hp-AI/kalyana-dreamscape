@@ -8,9 +8,7 @@ import {
   ShieldCheck,
   Camera,
   IndianRupee,
-  Utensils,
-  Flower2,
-  Play,
+  Star,
   MessageCircle,
   Menu,
   X,
@@ -22,14 +20,12 @@ const galHall = "https://image.wedmegood.com/resized/800X/uploads/member/749355/
 const galDining = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_3.jpg";
 const galRooms = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_4.jpg";
 const galParking = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_5.jpg";
-const catererImg = "https://image.wedmegood.com/resized/800X/uploads/member/140316/1741870257_image4544.jpg";
-const floristImg = "https://image.wedmegood.com/resized/800X/uploads/member/2224755/1739268490_image3682.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "AGN Kalyana Mantapa — Traditional South Indian Wedding Hall" },
-      { name: "description", content: "Sacred mantapa, grand banquet hall, dining, rooms, parking, catering & floral decor for your traditional South Indian wedding." },
+      { name: "description", content: "Sacred mantapa, grand banquet hall, dining, rooms, parking for your traditional South Indian wedding." },
       { property: "og:title", content: "AGN Kalyana Mantapa — Traditional South Indian Wedding Hall" },
       { property: "og:description", content: "Auspicious South Indian wedding venue — book your sacred ceremony with us." },
       { property: "og:url", content: "/" },
@@ -72,54 +68,19 @@ const galleryCategories = [
   { id: "parking", label: "Parking", alt: "Secure on-site parking with valet service", img: galParking, desc: "Secure parking for 200+ vehicles with valet service." },
 ] as const;
 
+const ratingPlatforms = [
+  { name: "Google Reviews", rating: 4.8, reviews: 127, label: "Excellent" },
+  { name: "WedMeGood", rating: 4.7, reviews: 89, label: "Highly Rated" },
+  { name: "WeddingWire", rating: 4.9, reviews: 54, label: "Top Pick" },
+  { name: "JustDial", rating: 4.6, reviews: 203, label: "Very Good" },
+] as const;
+
 function Index() {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activeCat, setActiveCat] = useState<string>("mantapa");
   const [mobileNav, setMobileNav] = useState(false);
-  const [activeVendor, setActiveVendor] = useState<string>("caterer");
 
   const active = galleryCategories.find((c) => c.id === activeCat) ?? galleryCategories[0];
-
-  const vendors = [
-    {
-      id: "caterer",
-      label: "Catering",
-      img: catererImg,
-      icon: <Utensils className="h-5 w-5" />,
-      tag: "Catering",
-      name: "Sri Annapoorna Caterers",
-      alt: "Traditional South Indian banana-leaf wedding feast",
-      desc: "Authentic South Indian banana-leaf meals — over 60 traditional dishes from Karnataka, Tamil Nadu & Andhra. Pure satvik kitchen.",
-      features: [
-        "60+ traditional regional dishes",
-        "Pure satvik kitchen, no onion-garlic option",
-        "Banana-leaf service for 500+ guests",
-        "Live dosa, chaat and sweets counters",
-      ],
-      phone: "+91 98450 12345",
-      waMsg: "Namaste, I would like to enquire about wedding catering at AGN Kalyana Mantapa.",
-    },
-    {
-      id: "florist",
-      label: "Floral Decor",
-      img: floristImg,
-      icon: <Flower2 className="h-5 w-5" />,
-      tag: "Floral Decor",
-      name: "Mallige Pushpa Decor",
-      alt: "Mantapa decorated with marigold and jasmine flowers",
-      desc: "Fresh marigold, jasmine, rose and orchid mantapa décor. Specialists in traditional pheras, kalyana and reception staging.",
-      features: [
-        "Fresh marigold, jasmine & rose work",
-        "Traditional mantapa & reception staging",
-        "Custom themes for muhurtham & nichayam",
-        "Same-day setup with skilled artisans",
-      ],
-      phone: "+91 98860 56789",
-      waMsg: "Namaste, I would like to enquire about flower decoration for my wedding at AGN Kalyana Mantapa.",
-    },
-  ] as const;
-
-  const activeV = vendors.find((v) => v.id === activeVendor) ?? vendors[0];
 
   const wa = (msg: string) =>
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
@@ -175,8 +136,7 @@ function Index() {
               )}
             </div>
             <a href="#services" className="text-sm font-medium text-foreground/80 hover:text-primary">Services</a>
-            <a href="#vendors" className="text-sm font-medium text-foreground/80 hover:text-primary">Caterers & Decor</a>
-            <a href="#video" className="text-sm font-medium text-foreground/80 hover:text-primary">Video Tour</a>
+            <a href="#ratings" className="text-sm font-medium text-foreground/80 hover:text-primary">Ratings</a>
             <a href="#location" className="text-sm font-medium text-foreground/80 hover:text-primary">Location</a>
             <a href="#contact" className="text-sm font-medium text-foreground/80 hover:text-primary">Contact</a>
           </nav>
@@ -200,8 +160,7 @@ function Index() {
             <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-3">
               {[
                 ["#home", "Home"], ["#gallery", "Gallery"], ["#services", "Services"],
-                ["#vendors", "Caterers & Decor"], ["#video", "Video Tour"],
-                ["#location", "Location"], ["#contact", "Contact"],
+                ["#ratings", "Ratings"], ["#location", "Location"], ["#contact", "Contact"],
               ].map(([h, l]) => (
                 <a key={h} href={h} onClick={() => setMobileNav(false)} className="rounded-md px-3 py-2.5 text-sm hover:bg-secondary/20">{l}</a>
               ))}
@@ -270,7 +229,7 @@ function Index() {
             <button
               key={cat.id}
               onClick={() => setActiveCat(cat.id)}
-              className={`rounded-full border-2 px-5 py-2 text-sm font-medium transition ${
+              className={`rounded-full border-2 px-5 py-2 text-sm font-medium transition-colors ${
                 activeCat === cat.id
                   ? "border-primary bg-gradient-royal text-primary-foreground shadow-gold"
                   : "border-accent/60 text-foreground hover:border-primary"
@@ -377,97 +336,44 @@ function Index() {
         </div>
       </section>
 
-      {/* VENDORS */}
-      <section id="vendors" className="mx-auto max-w-7xl px-5 py-20 md:py-28">
+      {/* RATINGS */}
+      <section id="ratings" className="mx-auto max-w-7xl px-5 py-20 md:py-28">
         <div className="text-center">
-          <p className="ornate-divider font-display text-xs uppercase tracking-[0.3em]"><span>Our Trusted Partners</span></p>
-          <h2 className="mt-4 text-4xl text-primary md:text-5xl">Caterers & Flower Decorators</h2>
+          <p className="ornate-divider font-display text-xs uppercase tracking-[0.3em]"><span>Guest Love</span></p>
+          <h2 className="mt-4 text-4xl text-primary md:text-5xl">Ratings Obtained</h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            Connect directly with our hand-picked partners — they know our venue inside out.
+            Trusted by hundreds of families across Bengaluru for over three generations.
           </p>
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-2 md:gap-3">
-          {vendors.map((v) => (
-            <button
-              key={v.id}
-              onClick={() => setActiveVendor(v.id)}
-              className={`rounded-full border-2 px-5 py-2 text-sm font-medium transition ${
-                activeVendor === v.id
-                  ? "border-primary bg-gradient-royal text-primary-foreground shadow-gold"
-                  : "border-accent/60 text-foreground hover:border-primary"
-              }`}
-            >
-              {v.label}
-            </button>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {ratingPlatforms.map((r) => (
+            <div key={r.name} className="rounded-2xl border border-accent/50 bg-card p-7 text-center shadow-gold sm:rounded-3xl">
+              <p className="text-sm font-medium text-muted-foreground">{r.name}</p>
+              <div className="mt-3 flex items-center justify-center gap-1">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star
+                    key={i}
+                    className={`h-5 w-5 ${i < Math.round(r.rating) ? "fill-secondary text-secondary" : "text-muted"}`}
+                  />
+                ))}
+              </div>
+              <p className="mt-2 text-3xl font-display text-primary">{r.rating}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{r.reviews.toLocaleString()} reviews</p>
+              <span className="mt-3 inline-block rounded-full bg-gradient-royal px-4 py-1 text-xs font-semibold text-primary-foreground">
+                {r.label}
+              </span>
+            </div>
           ))}
         </div>
 
-        <div className="mt-10 grid grid-cols-5 gap-3 sm:gap-4 md:gap-6">
-          <div className="col-span-3">
-            <div className="relative overflow-hidden rounded-2xl border-2 border-accent/60 shadow-royal sm:rounded-3xl">
-              <img
-                key={activeV.id}
-                src={activeV.img}
-                alt={activeV.alt}
-                className="h-full max-h-[520px] min-h-[220px] w-full animate-in fade-in object-cover sm:min-h-[360px] md:min-h-[420px]"
-                loading="lazy"
-              />
-              <span className="absolute left-2 top-2 inline-flex items-center gap-1 rounded-full bg-gradient-royal px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary-foreground sm:left-4 sm:top-4 sm:gap-2 sm:px-4 sm:py-1.5 sm:text-xs">
-                {activeV.icon} {activeV.tag}
-              </span>
-            </div>
-          </div>
-          <div className="col-span-2 rounded-2xl border border-accent/40 bg-card p-4 shadow-gold sm:rounded-3xl sm:p-6 md:p-8">
-            <h3 className="text-lg text-primary sm:text-2xl md:text-3xl">{activeV.name}</h3>
-            <div className="mt-2 h-1 w-16 bg-gradient-saffron" />
-            <p className="mt-3 text-xs leading-relaxed text-muted-foreground sm:mt-5 sm:text-base md:text-lg">{activeV.desc}</p>
-            <ul className="mt-4 space-y-2 text-xs sm:mt-6 sm:space-y-3 sm:text-sm">
-              {activeV.features.map((f) => (
-                <li key={f} className="flex items-start gap-3"><span className="text-secondary">✦</span> {f}</li>
-              ))}
-            </ul>
-            <div className="mt-5 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
-              <a href={`tel:${activeV.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-1.5 rounded-full border-2 border-primary px-3 py-1.5 text-[11px] font-semibold text-primary hover:bg-primary hover:text-primary-foreground sm:gap-2 sm:px-5 sm:py-2 sm:text-sm">
-                <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> {activeV.phone}
-              </a>
-              <a href={wa(activeV.waMsg)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-gradient-saffron px-3 py-1.5 text-[11px] font-semibold text-primary shadow-gold sm:gap-2 sm:px-5 sm:py-2 sm:text-sm">
-                <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* VIDEO */}
-      <section id="video" className="bg-gradient-royal py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 text-center text-primary-foreground">
-          <p className="ornate-divider font-display text-xs uppercase tracking-[0.3em] text-accent"><span>Virtual Tour</span></p>
-          <h2 className="mt-4 text-4xl md:text-5xl">Walk Through Our Mantapa</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-primary-foreground/85">
-            A short film capturing the soul, scale and sanctity of our wedding hall.
+        <div className="mt-10 rounded-2xl border border-accent/50 bg-gradient-royal p-8 text-center text-primary-foreground shadow-royal">
+          <p className="font-display text-lg md:text-xl">
+            ✦ 473+ happy families · 3 generations of trust · 4.8 average rating ✦
           </p>
-
-          <div className="mt-12 overflow-hidden rounded-3xl border-4 border-accent/70 shadow-royal">
-            <div className="relative grid aspect-video place-items-center bg-black/60 text-center">
-              <div className="px-6">
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-accent/20 text-accent">
-                  <Play className="h-7 w-7 fill-current" />
-                </div>
-                <p className="mt-5 font-display text-2xl text-accent">Virtual Tour Coming Soon</p>
-                <p className="mt-2 text-sm text-primary-foreground/75">
-                  Our official walkthrough video will be added here shortly.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <a
-            href="#contact"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-saffron px-7 py-3 font-semibold text-primary shadow-gold transition hover:scale-105"
-          >
-            <Play className="h-4 w-4 fill-current" /> Schedule a Live Site Visit
-          </a>
+          <p className="mt-2 text-sm text-primary-foreground/80">
+            We are honoured by every review and strive to make each wedding even more memorable.
+          </p>
         </div>
       </section>
 
