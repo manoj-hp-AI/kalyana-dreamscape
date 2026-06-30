@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import {
   ChevronDown,
   MapPin,
@@ -325,37 +326,45 @@ function Index() {
             can simply celebrate.
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: <IndianRupee className="h-6 w-6" />,
-                title: "Transparent Pricing",
-                price: "₹90,000 – ₹3,00,000",
-                desc: "2-day packages covering mantapa, hall, dining and rooms. Single-day bookings available on negotiation. Customise to suit your guest count and rituals.",
-              },
-              {
-                icon: <Camera className="h-6 w-6" />,
-                title: "24×7 CCTV Surveillance",
-                price: "32 HD Cameras",
-                desc: "Every entrance, parking lane, hall and corridor is monitored round-the-clock by our security team.",
-              },
-              {
-                icon: <ShieldCheck className="h-6 w-6" />,
-                title: "Safety & Hospitality",
-                price: "Trained Staff",
-                desc: "Fire-safety certified, on-site medical kit, valet parking and dedicated wedding co-ordinator.",
-              },
-            ].map((s) => (
-              <div key={s.title} className="group rounded-3xl border border-accent/50 bg-card p-8 shadow-gold transition hover:-translate-y-1 hover:shadow-royal">
-                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-royal text-primary-foreground">
-                  {s.icon}
-                </div>
-                <h3 className="mt-5 text-2xl text-primary">{s.title}</h3>
-                <p className="mt-1 font-display text-lg text-secondary">{s.price}</p>
-                <p className="mt-3 text-muted-foreground">{s.desc}</p>
-              </div>
-            ))}
-          </div>
+          <Carousel className="mt-14 w-full" opts={{ align: "start", loop: true }}>
+            <CarouselContent className="-ml-4">
+              {[
+                {
+                  icon: <IndianRupee className="h-6 w-6" />,
+                  title: "Transparent Pricing",
+                  price: "₹90,000 – ₹3,00,000",
+                  desc: "2-day packages covering mantapa, hall, dining and rooms. Single-day bookings available on negotiation. Customise to suit your guest count and rituals.",
+                },
+                {
+                  icon: <Camera className="h-6 w-6" />,
+                  title: "24×7 CCTV Surveillance",
+                  price: "32 HD Cameras",
+                  desc: "Every entrance, parking lane, hall and corridor is monitored round-the-clock by our security team.",
+                },
+                {
+                  icon: <ShieldCheck className="h-6 w-6" />,
+                  title: "Safety & Hospitality",
+                  price: "Trained Staff",
+                  desc: "Fire-safety certified, on-site medical kit, valet parking and dedicated wedding co-ordinator.",
+                },
+              ].map((s) => (
+                <CarouselItem key={s.title} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                  <div className="group h-full rounded-3xl border border-accent/50 bg-card p-8 shadow-gold transition hover:-translate-y-1 hover:shadow-royal">
+                    <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-royal text-primary-foreground">
+                      {s.icon}
+                    </div>
+                    <h3 className="mt-5 text-2xl text-primary">{s.title}</h3>
+                    <p className="mt-1 font-display text-lg text-secondary">{s.price}</p>
+                    <p className="mt-3 text-muted-foreground">{s.desc}</p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-6 flex justify-center gap-3">
+              <CarouselPrevious className="static translate-y-0 rounded-full bg-gradient-royal text-primary-foreground hover:bg-gradient-royal hover:opacity-90 disabled:opacity-40" />
+              <CarouselNext className="static translate-y-0 rounded-full bg-gradient-royal text-primary-foreground hover:bg-gradient-royal hover:opacity-90 disabled:opacity-40" />
+            </div>
+          </Carousel>
 
           <div className="mt-10 rounded-2xl border border-accent/50 bg-gradient-royal p-8 text-center text-primary-foreground shadow-royal">
             <p className="font-display text-lg md:text-xl">
