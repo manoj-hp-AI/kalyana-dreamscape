@@ -20,6 +20,9 @@ const galHall = "https://image.wedmegood.com/resized/800X/uploads/member/749355/
 const galDining = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_3.jpg";
 const galRooms = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_4.jpg";
 const galParking = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_5.jpg";
+const galExtra1 = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_6.jpg";
+const galExtra2 = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_7.jpg";
+const galExtra3 = "https://image.wedmegood.com/resized/800X/uploads/member/749355/1569837406_Screenshot_8.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,11 +64,11 @@ const WHATSAPP_NUMBER = "919876543210";
 const PHONE_DISPLAY = "+91 98765 43210";
 
 const galleryCategories = [
-  { id: "mantapa", label: "Mantapa", alt: "Sacred wedding mantapa decorated with marigolds and brass lamps", img: galMantapa, desc: "The sacred golden stage where vows are exchanged." },
-  { id: "hall", label: "Main Hall", alt: "Grand banquet hall with traditional South Indian decor", img: galHall, desc: "Grand banquet hall accommodating 1000+ guests." },
-  { id: "dining", label: "Dining Hall", alt: "Traditional banana-leaf dining hall for wedding guests", img: galDining, desc: "Traditional banana-leaf dining for 500 guests at a time." },
-  { id: "rooms", label: "Guest Rooms", alt: "Elegant guest suites for the wedding party", img: galRooms, desc: "20 elegant suites for the wedding party." },
-  { id: "parking", label: "Parking", alt: "Secure on-site parking with valet service", img: galParking, desc: "Secure parking for 200+ vehicles with valet service." },
+  { id: "mantapa", label: "Mantapa", alt: "Sacred wedding mantapa decorated with marigolds and brass lamps", images: [galMantapa, galExtra1, galHall], desc: "The sacred golden stage where vows are exchanged." },
+  { id: "hall", label: "Main Hall", alt: "Grand banquet hall with traditional South Indian decor", images: [galHall, galExtra2, galMantapa], desc: "Grand banquet hall accommodating 1000+ guests." },
+  { id: "dining", label: "Dining Hall", alt: "Traditional banana-leaf dining hall for wedding guests", images: [galDining, galExtra3, galExtra1], desc: "Traditional banana-leaf dining for 500 guests at a time." },
+  { id: "rooms", label: "Guest Rooms", alt: "Elegant guest suites for the wedding party", images: [galRooms, galExtra2, galExtra3], desc: "20 elegant suites for the wedding party." },
+  { id: "parking", label: "Parking", alt: "Secure on-site parking with valet service", images: [galParking, galExtra1, galExtra3], desc: "Secure parking for 200+ vehicles with valet service." },
 ] as const;
 
 const ratingPlatforms = [
@@ -242,15 +245,24 @@ function Index() {
 
         <div className="mt-10 grid grid-cols-5 gap-3 sm:gap-4 md:gap-6">
           <div className="col-span-3">
-            <div className="overflow-hidden rounded-2xl border-2 border-accent/60 shadow-royal sm:rounded-3xl">
-              <img
-                key={active.id}
-                src={active.img}
-                alt={active.alt}
-                className="h-full max-h-[520px] min-h-[220px] w-full animate-in fade-in object-cover sm:min-h-[360px] md:min-h-[420px]"
-                loading="lazy"
-              />
-            </div>
+            <Carousel key={active.id} opts={{ align: "start", loop: true }} className="relative">
+              <CarouselContent>
+                {active.images.map((src, i) => (
+                  <CarouselItem key={i}>
+                    <div className="overflow-hidden rounded-2xl border-2 border-accent/60 shadow-royal sm:rounded-3xl">
+                      <img
+                        src={src}
+                        alt={`${active.alt} — view ${i + 1}`}
+                        className="h-full max-h-[520px] min-h-[220px] w-full object-cover sm:min-h-[360px] md:min-h-[420px]"
+                        loading="lazy"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 bg-background/80" />
+              <CarouselNext className="right-2 top-1/2 -translate-y-1/2 bg-background/80" />
+            </Carousel>
           </div>
           <div className="col-span-2 rounded-2xl border border-accent/40 bg-card p-4 shadow-gold sm:rounded-3xl sm:p-6 md:p-8">
             <h3 className="text-lg text-primary sm:text-2xl md:text-3xl">{active.label}</h3>
