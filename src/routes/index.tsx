@@ -127,7 +127,7 @@ function Index() {
                         onClick={() => { setActiveCat(cat.id); setGalleryOpen(false); }}
                         className="flex items-center gap-3 border-b border-accent/30 px-4 py-3 last:border-0 transition hover:bg-secondary/20"
                       >
-                        <img src={cat.img} alt="" className="h-10 w-10 rounded-md object-cover" loading="lazy" />
+                        <img src={cat.images[0]} alt="" className="h-10 w-10 rounded-md object-cover" loading="lazy" />
                         <div>
                           <div className="font-display text-sm text-primary">{cat.label}</div>
                           <div className="text-xs text-muted-foreground">View photos</div>
